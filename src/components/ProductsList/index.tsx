@@ -1,5 +1,5 @@
 import Food from '../../models/Food'
-import Product from '../ProductCard'
+import ProductCard from '../ProductCard'
 import { Container, List } from './styles'
 
 export type Props = {
@@ -12,7 +12,7 @@ const ProductList = ({ foods }: Props) => (
     <div className="container">
       <List>
         {foods.map((food) => (
-          <Product
+          <ProductCard
             key={food.id}
             category={food.category}
             description={food.description}

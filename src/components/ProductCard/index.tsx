@@ -9,6 +9,7 @@ import {
 } from './styles'
 import estrela from '../../assets/images/estrela.png'
 import Tag from '../Tag'
+import Button from '../Button'
 
 type Props = {
   title: string
@@ -20,28 +21,31 @@ type Props = {
   variant?: 'default' | 'category'
 }
 
-const Product = ({
+const ProductCard = ({
   title,
   category,
   description,
   infos,
   image,
-  score
+  score,
+  variant = 'default'
 }: Props) => (
-  <Card>
+  <Card variant={variant}>
     <Link to="/perfil">
       <img src={image} alt={title} />
     </Link>
-    <ContentWrapper>
-      <Infos>
-        {infos.map((info) => (
-          <Tag key={info} size="small">
-            {info}
-          </Tag>
-        ))}
-      </Infos>
+    <ContentWrapper variant={variant}>
+      {variant !== 'category' && (
+        <Infos>
+          {infos.map((info) => (
+            <Tag key={info} size="small">
+              {info}
+            </Tag>
+          ))}
+        </Infos>
+      )}
       <TituloWrapper>
-        <Titulo>{title}</Titulo>
+        <Titulo variant={variant}>{title}</Titulo>
         {score !== undefined && (
           <div className="score">
             <span>{score.toFixed(1)}</span>
@@ -50,9 +54,22 @@ const Product = ({
         )}
       </TituloWrapper>
       <Descricao>{description}</Descricao>
-      <Tag size="big">{category}</Tag>
+      {category === 'Adicionar ao carrinho' ? (
+        <Button
+          type="button"
+          title={category}
+          variant="category"
+          onClick={() => alert('Adicionado ao carrinho')}
+        >
+          {category}
+        </Button>
+      ) : (
+        <Button type="link" title={category} to="/perfil" variant="default">
+          {category}
+        </Button>
+      )}
     </ContentWrapper>
   </Card>
 )
 
-export default Product
+export default ProductCard

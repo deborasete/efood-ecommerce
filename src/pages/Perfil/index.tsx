@@ -1,7 +1,7 @@
-import Category from '../CategoryList'
+import Category from '../PerfilList'
 import Food from '../../models/Food'
 import pizza from '../../assets/images/pizza.png'
-import CategoryBanner from '../CategoryBanner'
+import PerfilBanner from '../PerfilBanner'
 
 const opcao: Food[] = [
   {
@@ -62,7 +62,7 @@ const opcao: Food[] = [
 
 const Perfil = () => (
   <>
-    <CategoryBanner />
+    <PerfilBanner />
     <Category foods={opcao} title="" />
   </>
 )

@@ -2,9 +2,15 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
-export const Card = styled.div`
-  background-color: ${cores.white};
+interface CardProps {
+  variant?: 'default' | 'category'
+}
+
+export const Card = styled.div<CardProps>`
+  background-color: ${(props) =>
+    props.variant === 'category' ? cores.darkPink : cores.white};
   position: relative;
+  width: 100%;
 
   img {
     width: 100%;
@@ -12,12 +18,15 @@ export const Card = styled.div`
     object-fit: cover;
     padding: 0;
     display: block;
+    padding: ${(props) => (props.variant === 'category' ? '8px' : '0')};
   }
 `
 
-export const ContentWrapper = styled.div`
-  border: 1px solid ${cores.darkPink};
-  border-top: none;
+export const ContentWrapper = styled.div<CardProps>`
+  border: ${(props) =>
+    props.variant === 'category' ? 'none' : `1px solid ${cores.darkPink}`};
+  background-color: ${(props) =>
+    props.variant === 'category' ? cores.darkPink : 'transparent'};
   padding: 8px;
 
   ${TagContainer} {
@@ -25,23 +34,27 @@ export const ContentWrapper = styled.div`
     background-color: ${cores.darkPink};
     color: ${cores.lightPink};
   }
+
+  h3,
+  p {
+    color: ${(props) =>
+      props.variant === 'category' ? cores.lightPink : 'inherit'};
+  }
 `
 
-export const Titulo = styled.h3`
+export const Titulo = styled.h3<CardProps>`
   font-weight: bold;
-  font-size: 18px;
+  font-size: ${(props) => (props.variant === 'category' ? '16px' : '18px')};
   line-height: 1;
   margin: 0;
 `
 
-export const Descricao = styled.p`
+export const Descricao = styled.p<CardProps>`
   font-size: 14px;
   line-height: 22px;
   display: block;
   margin-top: 16px;
-  margin-left: 8px;
-  margin-bottom: 8px;
-  height: 100px;
+  margin-bottom: ${(props) => (props.variant === 'category' ? '0' : '16px')};
 `
 
 export const Infos = styled.div`
@@ -56,11 +69,9 @@ export const TituloWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 16px;
   margin-bottom: 8px;
   font-weight: bold;
   font-size: 18px;
-  margin: 7px 7px;
 
   .score {
     display: flex;
