@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 
 import { cores } from '../../styles'
 
-export const ButtonContainer = styled.button`
+interface ButtonProps {
+  variant?: 'default' | 'alternative'
+}
+
+export const ButtonContainer = styled.button<ButtonProps>`
   border: 2px solid ${cores.darkPink};
   color: ${cores.lightPink};
   background-color: transparent;
@@ -13,7 +17,7 @@ export const ButtonContainer = styled.button`
   border-radius: 8px;
 `
 
-export const ButtonLink = styled(Link)`
+export const ButtonLink = styled(Link)<ButtonProps>`
   border: 2px solid ${cores.darkPink};
   color: ${cores.lightPink};
   background-color: transparent;

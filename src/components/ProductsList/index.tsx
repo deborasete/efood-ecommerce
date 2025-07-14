@@ -1,17 +1,15 @@
 import Food from '../../models/Food'
-import Product from '../../components/Product'
+import Product from '../ProductCard'
 import { Container, List } from './styles'
 
 export type Props = {
-  title: string
   background: 'lighterPink'
   foods: Food[]
 }
 
-const ProductList = ({ title, foods }: Props) => (
+const ProductList = ({ foods }: Props) => (
   <Container>
     <div className="container">
-      <h2>{title}</h2>
       <List>
         {foods.map((food) => (
           <Product

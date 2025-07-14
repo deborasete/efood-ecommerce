@@ -1,23 +1,30 @@
-import { Link } from 'react-router-dom'
-import { HeaderBar, LinkCart, LinkItem, Links } from './styles'
-import carrinho from '../../assets/images/carrinho.svg'
+import {
+  HeaderBar,
+  ContainerHeader,
+  Links,
+  LinkItem,
+  StyledLink,
+  LogoLink,
+  LinkCart
+} from './styles'
+import logo from '../../assets/images/logo.png'
+// import carrinho from '../../assets/images/carrinho.svg'
 
 const Header = () => (
   <HeaderBar>
-    <div>
-      <Link to="/">Home</Link>
+    <ContainerHeader>
       <nav>
         <Links>
           <LinkItem>
-            <Link to="/perfil">Perfil Restaurante</Link>
+            <StyledLink to="/perfil">Restaurantes</StyledLink>
           </LinkItem>
         </Links>
       </nav>
-    </div>
-    <LinkCart href="#">
-      0 - produto(s)
-      <img src={carrinho} alt="Carrinho de compras" />
-    </LinkCart>
+      <LogoLink to="/">
+        <img src={logo} alt="Efood Logo" />
+      </LogoLink>
+      <LinkCart href="#">0 produto(s) no carrinho</LinkCart>
+    </ContainerHeader>
   </HeaderBar>
 )
 

@@ -1,6 +1,6 @@
 import Category from '../CategoryList'
-import Food from '../../../../models/Food'
-import pizza from '../../../../assets/images/pizza.png'
+import Food from '../../models/Food'
+import pizza from '../../assets/images/pizza.png'
 import CategoryBanner from '../CategoryBanner'
 
 const opcao: Food[] = [

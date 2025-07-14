@@ -1,6 +1,6 @@
-import Food from '../../../../models/Food'
-import ProductA from '../ProductA'
-import { ListA } from '../CategoryList/styles'
+import Food from '../../models/Food'
+import CategoryProduct from '../../components/ProductCard'
+import { ListA } from './styles'
 import { Container } from './styles'
 
 export type Props = {
@@ -15,7 +15,7 @@ const Category = ({ title, foods }: Props) => (
       <ListA>
         {foods.map((food) => (
           <li key={food.id}>
-            <ProductA
+            <CategoryProduct
               category={food.category}
               description={food.description}
               image={food.image}

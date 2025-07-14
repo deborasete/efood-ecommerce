@@ -4,7 +4,8 @@ export const cores = {
   lightPink: '#FFEBD9',
   darkPink: '#E66767',
   white: '#FFFFFF',
-  lighterPink: '#fceeee'
+  lighterPink: '#fceeee',
+  lightGray: 'rgb(253, 248, 248)'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -17,9 +18,8 @@ export const GlobalCss = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.lighterPink};
+    background-color: ${cores.lightGray};
     color: ${cores.darkPink};
-    padding-top: 40px;
     overflow-x: hidden;
   }
 

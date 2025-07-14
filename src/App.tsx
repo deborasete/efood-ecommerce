@@ -1,21 +1,21 @@
-import { BrowserRouter } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import { GlobalCss } from './styles'
 import Header from './components/Header'
-
-import Rotas from './routes'
 import Footer from './components/Footer'
+import Rotas from './routes'
 
 function App() {
+  const location = useLocation()
+
   return (
-    <BrowserRouter>
+    <>
       <GlobalCss />
-      <div className="container">
-        <Header />
-      </div>
+      {location.pathname === '/perfil' && <Header />}
+      <div className="container"></div>
       <Rotas />
       <Footer />
-    </BrowserRouter>
+    </>
   )
 }
 
