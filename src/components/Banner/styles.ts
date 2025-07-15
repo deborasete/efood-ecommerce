@@ -2,13 +2,9 @@ import styled from 'styled-components'
 
 export const Imagem = styled.div`
   width: 100%;
-  height: 360px;
-  display: block;
+  height: 384px;
   background-repeat: no-repeat;
   background-size: cover;
-  font-weight: bold;
-  top: 0;
-  margin-top: 0;
 
   .container {
     position: relative;
@@ -20,9 +16,10 @@ export const Imagem = styled.div`
 
 export const Titulo = styled.h2`
   font-size: 36px;
-  max-width: 539px;
-  text-align: center;
+  font-weight: bold;
   margin-top: 138.5px;
+  margin-bottom: 40px;
+  text-align: center;
 `
 
 export const Content = styled.div`

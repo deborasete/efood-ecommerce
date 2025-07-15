@@ -19,6 +19,7 @@ type Props = {
   image: string
   score?: number
   variant?: 'default' | 'category'
+  onAddToCart?: () => void
 }
 
 const ProductCard = ({
@@ -28,7 +29,8 @@ const ProductCard = ({
   infos,
   image,
   score,
-  variant = 'default'
+  variant = 'default',
+  onAddToCart
 }: Props) => (
   <Card variant={variant}>
     <Link to="/perfil">
@@ -59,7 +61,7 @@ const ProductCard = ({
           type="button"
           title={category}
           variant="category"
-          onClick={() => alert('Adicionado ao carrinho')}
+          onClick={onAddToCart}
         >
           {category}
         </Button>

@@ -9,30 +9,25 @@ export const HeaderBar = styled.header`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 163px;
-  width: 100%;
+  height: 186px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 40px;
 `
+
 export const ContainerHeader = styled.div`
-  width: calc(100% - 342px);
+  width: 100%;
   max-width: 1024px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
 `
 
-export const Links = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-`
-export const LinkItem = styled.li``
-
 export const StyledLink = styled(Link)`
+  position: absolute;
+  left: 0;
   color: ${cores.darkPink};
   font-weight: bold;
   text-decoration: none;
@@ -43,16 +38,18 @@ export const StyledLink = styled(Link)`
   }
 `
 
-export const LogoLink = styled(Link)`
-  display: block;
-  margin-left: 68px;
-  margin-bottom: 20px;
-`
-
 export const LinkCart = styled.a`
+  position: absolute;
+  right: 0;
   display: flex;
   color: ${cores.darkPink};
   font-weight: bold;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
+`
+
+export const LogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
