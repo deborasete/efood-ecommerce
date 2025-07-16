@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <GlobalCss />
-      {location.pathname === '/perfil' && <Header />}
+      {location.pathname.startsWith('/perfil') && <Header />}
       <div className="container"></div>
       <Rotas />
       <Footer />

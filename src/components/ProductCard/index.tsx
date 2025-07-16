@@ -20,6 +20,9 @@ type Props = {
   score?: number
   variant?: 'default' | 'category'
   onAddToCart?: () => void
+  id?: number
+  size?: 'default' | 'category'
+  buttonVariant?: 'default' | 'category'
 }
 
 const ProductCard = ({
@@ -30,48 +33,60 @@ const ProductCard = ({
   image,
   score,
   variant = 'default',
-  onAddToCart
-}: Props) => (
-  <Card variant={variant}>
-    <Link to="/perfil">
-      <img src={image} alt={title} />
-    </Link>
-    <ContentWrapper variant={variant}>
-      {variant !== 'category' && (
-        <Infos>
-          {infos.map((info) => (
-            <Tag key={info} size="small">
-              {info}
-            </Tag>
-          ))}
-        </Infos>
-      )}
-      <TituloWrapper>
-        <Titulo variant={variant}>{title}</Titulo>
-        {score !== undefined && (
-          <div className="score">
-            <span>{score.toFixed(1)}</span>
-            <img src={estrela} alt="Estrela" />
-          </div>
+  size,
+  buttonVariant,
+  onAddToCart,
+  id
+}: Props) => {
+  const isSaibaMais = category === 'Saiba Mais'
+  return (
+    <Card variant={variant} size={size}>
+      <Link to={isSaibaMais && id ? `/perfil/${id}` : '#'}>
+        <img src={image} alt={title} />
+      </Link>
+      <ContentWrapper variant={variant} size={size}>
+        {variant !== 'category' && (
+          <Infos>
+            {infos.map((info) => (
+              <Tag key={info} size="small">
+                {info}
+              </Tag>
+            ))}
+          </Infos>
         )}
-      </TituloWrapper>
-      <Descricao>{description}</Descricao>
-      {category === 'Adicionar ao carrinho' ? (
-        <Button
-          type="button"
-          title={category}
-          variant="category"
-          onClick={onAddToCart}
-        >
-          {category}
-        </Button>
-      ) : (
-        <Button type="link" title={category} to="/perfil" variant="default">
-          {category}
-        </Button>
-      )}
-    </ContentWrapper>
-  </Card>
-)
+        <TituloWrapper>
+          <Titulo variant={variant}>{title}</Titulo>
+          {score !== undefined && (
+            <div className="score">
+              <span>{score.toFixed(1)}</span>
+              <img src={estrela} alt="Estrela" />
+            </div>
+          )}
+        </TituloWrapper>
+        <Descricao>{description}</Descricao>
+        {isSaibaMais && id ? (
+          <Button
+            type="link"
+            title={category}
+            to={`/perfil/${id}`}
+            variant={buttonVariant || 'category'}
+            onClick={onAddToCart}
+          >
+            {category}
+          </Button>
+        ) : (
+          <Button
+            type="button"
+            title={category}
+            variant="category"
+            onClick={onAddToCart}
+          >
+            {category}
+          </Button>
+        )}
+      </ContentWrapper>
+    </Card>
+  )
+}
 
 export default ProductCard

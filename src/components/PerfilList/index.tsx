@@ -22,6 +22,7 @@ const PerfilList = ({ foods, title, onAddToCart }: Props) => (
             image={food.image}
             infos={food.infos || []}
             variant="category"
+            size="category"
             onAddToCart={() => onAddToCart(food)}
           />
         ))}

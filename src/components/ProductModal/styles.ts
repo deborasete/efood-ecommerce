@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
+import {
+  Titulo as CardTitulo,
+  Descricao as CardDescricao
+} from '../ProductCard/styles'
 
 export const ModalOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
@@ -16,52 +20,68 @@ export const ModalOverlay = styled.div`
 
 export const ModalContent = styled.div`
   background-color: ${cores.darkPink};
-  padding: 32px;
   color: ${cores.lightPink};
   display: flex;
-  max-width: 1024px;
   gap: 24px;
-  position: relative;
+  position: absolute;
+  width: 1024px;
+  height: 344px;
+  padding: 32px;
+
+  box-sizing: border-box;
 
   img {
     width: 280px;
     height: auto;
     object-fit: cover;
   }
+`
+export const ProductImage = styled.img`
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  margin-left: 0;
+`
+export const CloseButton = styled.button`
+  background: transparent;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
 
-  h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-
-  p {
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-
-  span {
-    font-size: 12px;
+  img {
+    width: 16px;
+    height: 16px;
     display: block;
-    margin-bottom: 16px;
-  }
-
-  button {
-    background-color: ${cores.lightPink};
-    color: ${cores.darkPink};
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
   }
 `
-
-export const CloseButton = styled.button`
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  background: none;
+export const Title = styled(CardTitulo)`
+  font-size: 18px;
   color: ${cores.lightPink};
+  margin-bottom: 16px;
+`
+
+export const Description = styled(CardDescricao)`
+  color: ${cores.lightPink};
+`
+
+export const Portion = styled.span`
+  font-size: 14px;
+  line-height: 22px;
+  display: block;
+  margin-bottom: 16px;
+`
+
+export const AddButton = styled.button`
+  background-color: ${cores.lightPink};
+  color: ${cores.darkPink};
   border: none;
-  font-size: 24px;
+  padding: 4px;
+  width: 218px;
+  height: 24px;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
 `

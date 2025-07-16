@@ -17,11 +17,18 @@ export const ButtonContainer = styled.button<ButtonProps>`
 
   font-size: 14px;
   font-weight: bold;
-  padding: 4px 6px;
+  padding: 4px;
   cursor: pointer;
-  display: block;
   text-align: center;
-  width: 100%;
+  height: 24px;
+  margin-top: 8px;
+
+  display: ${(props) =>
+    props.variant === 'category' ? 'block' : 'inline-block'};
+  width: ${(props) => (props.variant === 'category' ? '100%' : 'auto')};
+  max-width: ${(props) => (props.variant === 'category' ? '304px' : 'none')};
+  align-self: ${(props) =>
+    props.variant === 'category' ? 'center' : 'flex-start'};
 `
 
 export const ButtonLink = styled(Link)<ButtonProps>`
@@ -35,6 +42,11 @@ export const ButtonLink = styled(Link)<ButtonProps>`
 
   font-weight: bold;
   text-decoration: none;
-  display: inline-block;
+  height: auto;
   padding: 4px 6px;
+
+  width: ${(props) => (props.variant === 'category' ? '100%' : 'auto')};
+  max-width: ${(props) => (props.variant === 'category' ? '304px' : 'none')};
+  align-self: ${(props) =>
+    props.variant === 'category' ? 'center' : 'flex-start'};
 `

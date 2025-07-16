@@ -4,30 +4,46 @@ import { TagContainer } from '../Tag/styles'
 
 interface CardProps {
   variant?: 'default' | 'category'
+  size?: 'default' | 'category'
 }
 
 export const Card = styled.div<CardProps>`
   background-color: ${(props) =>
     props.variant === 'category' ? cores.darkPink : cores.white};
   position: relative;
-  width: 100%;
+  width: ${(props) => (props.size === 'category' ? '320px' : '100%')};
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   img {
-    width: 100%;
-    height: 217px;
+    width: ${(props) => (props.size === 'category' ? '100%' : '472px')};
+    height: ${(props) => (props.size === 'category' ? '167px' : '217px')};
     object-fit: cover;
-    padding: 0;
+    padding: ${(props) => (props.size === 'category' ? '8px' : '0')};
     display: block;
-    padding: ${(props) => (props.variant === 'category' ? '8px' : '0')};
   }
 `
 
 export const ContentWrapper = styled.div<CardProps>`
-  border: ${(props) =>
+  border-left: ${(props) =>
+    props.variant === 'category' ? 'none' : `1px solid ${cores.darkPink}`};
+  border-right: ${(props) =>
+    props.variant === 'category' ? 'none' : `1px solid ${cores.darkPink}`};
+  border-bottom: ${(props) =>
     props.variant === 'category' ? 'none' : `1px solid ${cores.darkPink}`};
   background-color: ${(props) =>
     props.variant === 'category' ? cores.darkPink : 'transparent'};
   padding: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+
+  button {
+    margin-top: auto;
+  }
 
   ${TagContainer} {
     border-radius: 0;
@@ -69,7 +85,6 @@ export const TituloWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
   font-weight: bold;
   font-size: 18px;
 

@@ -1,10 +1,15 @@
-import bannerCategories from '../../assets/images/bannerCategories.png'
-import { ImagemBanner } from './styles'
+import { Header, ImagemBanner } from './styles'
 
-const PerfilBanner = () => (
-  <ImagemBanner>
-    <img src={bannerCategories} alt="Banner categorias" />
-  </ImagemBanner>
+type Props = {
+  image?: string
+}
+
+const PerfilBanner = ({ image }: Props) => (
+  <Header>
+    <ImagemBanner
+      style={{ backgroundImage: `url(${image || '/imagens/fundo.png'})` }}
+    />
+  </Header>
 )
 
 export default PerfilBanner

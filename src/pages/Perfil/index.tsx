@@ -1,81 +1,76 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import Food from '../../models/Food'
 import PerfilBanner from '../../components/PerfilBanner'
 import ProductModal from '../../components/ProductModal'
 import PerfilList from '../../components/PerfilList'
 
-const Perfil = () => {
-  const [foods, setFoods] = useState<Food[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+type Plate = {
+  id: number
+  nome: string
+  descricao: string
+  foto: string
+  preco: number
+  porcao: string
+}
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedProduct, setSelectedProduct] = useState<Food | null>(null)
+type RestauratApi = {
+  titulo: string
+  capa: string
+  cardapio: Plate[]
+}
+
+type RestaurantConverted = {
+  titulo: string
+  capa: string
+  cardapio: Food[]
+}
+
+const Perfil = () => {
+  const { id } = useParams()
+  const [restaurante, setRestaurante] = useState<RestaurantConverted | null>(
+    null
+  )
+  const [modalProduto, setModalProduto] = useState<Food | null>(null)
 
   useEffect(() => {
-    async function fetchFoods() {
-      try {
-        const response = await fetch(
-          'https://fake-api-tau.vercel.app/api/efood/restaurantes'
-        )
-        if (!response.ok) {
-          throw new Error(`Erro ao buscar dados: ${response.statusText}`)
-        }
-        const data = await response.json()
-
-        const foodsFromApi: Food[] = []
-
-        data.forEach((restaurant: any) => {
-          restaurant.cardapio.forEach((dish: any) => {
-            foodsFromApi.push({
-              id: dish.id,
-              category: restaurant.tipo,
-              description: dish.descricao,
-              image: dish.foto,
-              infos: [dish.porcao],
-              title: dish.nome,
-              score: restaurant.avaliacao
-            })
-          })
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res: RestauratApi) => {
+        const cardapioConvertido: Food[] = res.cardapio.map((item: Plate) => {
+          return new Food(
+            item.id,
+            'Adicionar ao carrinho',
+            item.descricao,
+            item.foto,
+            [],
+            item.nome,
+            0,
+            item.preco,
+            item.porcao
+          )
         })
+        setRestaurante({
+          ...res,
+          cardapio: cardapioConvertido
+        })
+      })
+  }, [id])
 
-        setFoods(foodsFromApi)
-      } catch (err: any) {
-        setError(err.message)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    fetchFoods()
-  }, [])
-
-  const openModal = (product: Food) => {
-    setSelectedProduct(product)
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false)
-    setSelectedProduct(null)
-  }
-
-  if (isLoading) {
-    return <p>Carregando produtos...</p>
-  }
-
-  if (error) {
-    return <p>Erro: {error}</p>
-  }
+  if (!restaurante) return <h3>Carregando...</h3>
 
   return (
     <>
-      <PerfilBanner />
-      <PerfilList foods={foods} title="" onAddToCart={openModal} />
+      <PerfilBanner image={restaurante.capa} />
+      <PerfilList
+        foods={restaurante.cardapio}
+        title={restaurante.titulo}
+        onAddToCart={(produto) => setModalProduto(produto)}
+      />
       <ProductModal
-        product={selectedProduct}
-        isOpen={isModalOpen}
-        onClose={closeModal}
+        product={modalProduto}
+        isOpen={modalProduto !== null}
+        onClose={() => setModalProduto(null)}
       />
     </>
   )
