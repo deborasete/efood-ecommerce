@@ -10,7 +10,7 @@ import {
 const Header = () => (
   <HeaderBar>
     <ContainerHeader>
-      <StyledLink to="/perfil">Restaurantes</StyledLink>
+      <StyledLink to="/">Restaurantes</StyledLink>
 
       <LogoLink to="/">
         <Logo />
