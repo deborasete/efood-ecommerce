@@ -8,10 +8,12 @@ import Rotas from './routes'
 function App() {
   const location = useLocation()
 
+  const isHome = location.pathname === '/'
+
   return (
     <>
       <GlobalCss />
-      {location.pathname.startsWith('/perfil') && <Header />}
+      {!isHome && <Header />}
       <div className="container"></div>
       <Rotas />
       <Footer />
