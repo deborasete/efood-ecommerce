@@ -38,7 +38,7 @@ export const StyledLink = styled(Link)`
   }
 `
 
-export const LinkCart = styled.a`
+export const LinkCart = styled(Link)`
   position: absolute;
   right: 0;
   display: flex;

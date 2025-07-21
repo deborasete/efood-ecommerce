@@ -18,12 +18,14 @@ type RestauratApi = {
   titulo: string
   capa: string
   cardapio: Plate[]
+  tipo: string
 }
 
 type RestaurantConverted = {
   titulo: string
   capa: string
   cardapio: Food[]
+  tipo: string
 }
 
 const Perfil = () => {
@@ -61,7 +63,11 @@ const Perfil = () => {
 
   return (
     <>
-      <PerfilBanner image={restaurante.capa} />
+      <PerfilBanner
+        image={restaurante.capa}
+        title={restaurante.titulo}
+        info={restaurante.tipo}
+      />
       <PerfilList
         foods={restaurante.cardapio}
         title={restaurante.titulo}

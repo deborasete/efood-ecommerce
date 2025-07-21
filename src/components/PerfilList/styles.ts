@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
+  padding: 0 170px;
   .container {
     margin-top: 56px;
     margin-bottom: 120px;
