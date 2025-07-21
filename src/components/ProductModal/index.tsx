@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
 import Food from '../../models/Food'
 import closeIcon from '../../assets/images/close.png'
 import {
@@ -18,10 +20,19 @@ type Props = {
 }
 
 const ProductModal = ({ product, isOpen, onClose }: Props) => {
+  const dispatch = useDispatch()
   if (!isOpen || !product) return null
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
+      onClose()
+    }
+  }
+
+  const handleAddToCart = () => {
+    if (product) {
+      dispatch(add(product))
+      dispatch(open())
       onClose()
     }
   }
@@ -38,7 +49,7 @@ const ProductModal = ({ product, isOpen, onClose }: Props) => {
           <Description>{product.description}</Description>
           {product.portion && <Portion>Serve: {product.portion}</Portion>}
           {product.price !== undefined && (
-            <AddButton>
+            <AddButton onClick={handleAddToCart}>
               Adicionar ao carrinho - R${' '}
               {product.price.toFixed(2).replace('.', ',')}
             </AddButton>

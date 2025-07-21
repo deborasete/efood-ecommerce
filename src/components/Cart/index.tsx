@@ -30,15 +30,27 @@ const Cart = () => {
               <img src={item.image} alt={item.title} />
               <div>
                 <h4>{item.title}</h4>
-                <span>R$ {item.price?.toFixed(2)}</span>
+                <span>
+                  R${' '}
+                  {item.price?.toLocaleString('pt-BR', {
+                    minimumFractionDigits: 2
+                  })}
+                </span>
               </div>
               <button onClick={() => removeItem(item.id)} type="button" />
             </CartItem>
           ))}
         </ul>
         <Footer>
-          <span>Valor total</span>
-          <strong>R$ {getTotalPrice().toFixed(2)}</strong>
+          <div className="total">
+            <span>Valor total</span>
+            <p>
+              R${' '}
+              {getTotalPrice().toLocaleString('pt-BR', {
+                minimumFractionDigits: 2
+              })}
+            </p>
+          </div>
           <button>Continuar com a entrega</button>
         </Footer>
       </Sidebar>

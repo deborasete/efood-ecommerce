@@ -42,7 +42,7 @@ const Perfil = () => {
         const cardapioConvertido: Food[] = res.cardapio.map((item: Plate) => {
           return new Food(
             item.id,
-            'Adicionar ao carrinho',
+            'Mais detalhes',
             item.descricao,
             item.foto,
             [],

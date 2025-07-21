@@ -11,7 +11,7 @@ export const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: #000;
-  opacity: 0.7;
+  opacity: 0.8;
 `
 
 export const CartContainer = styled.div`
@@ -32,60 +32,44 @@ export const CartContainer = styled.div`
 export const Sidebar = styled.aside`
   background-color: ${cores.darkPink};
   z-index: 1;
-  padding: 40px 16px 0 16px;
+  padding: 32px 8px 16px 8px;
   max-width: 360px;
   width: 100%;
-
-  ${ButtonContainer} {
-    max-width: 100%;
-    width: 100%;
-  }
-`
-
-export const Prices = styled.p`
-  font-weight: bold;
-  font-size: 14px;
-  color: ${cores.lightPink};
-  margin-bottom: 24px;
-
-  span {
-    display: block;
-    font-size: 12px;
-    color: ${cores.lightPink};
-  }
 `
 
 export const CartItem = styled.li`
   display: flex;
-  border-bottom: 1px solid ${cores.lightPink};
-  padding-bottom: 8px;
-  padding: 8px 0;
+  background-color: ${cores.lightPink};
+  height: 100px;
   position: relative;
+  align-items: flex-start;
+  padding: 8px;
+  margin-bottom: 16px;
 
   img {
     height: 80px;
     width: 80px;
     object-fit: cover;
-    margin-right: 24px;
+    margin-right: 8px;
   }
 
-  h3 {
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  h4 {
+    margin: 0;
     color: ${cores.darkPink};
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
+    margin-bottom: 16px;
   }
 
   span {
-    display: block;
     color: ${cores.darkPink};
-    font-weight: bold;
     font-size: 14px;
-  }
-
-  ${TagContainer} {
-    margin-right: 8px;
-    margin-top: 8px;
-    margin-bottom: 16px;
   }
 
   button {
@@ -95,35 +79,34 @@ export const CartItem = styled.li`
     border: none;
     background-color: transparent;
     position: absolute;
-    top: 8px;
-    right: 0;
+    bottom: 8px;
+    right: 8px;
+    cursor: pointer;
   }
 `
 
 export const Footer = styled.footer`
   margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid #fff;
+  padding-top: 24px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  font-size: 14px;
+  color: ${cores.lightPink};
 
-  span {
-    color: #fff;
-    font-size: 14px;
-  }
-
-  strong {
-    color: #fff;
-    font-size: 18px;
+  .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
   }
 
   button {
-    background-color: #fff;
-    color: #e66767;
-    padding: 12px;
+    font-size: 14px;
+    background-color: ${cores.lightPink};
+    color: ${cores.darkPink};
+    margin-top: 16px;
+    padding: 4px;
     border: none;
-    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
   }

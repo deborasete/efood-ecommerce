@@ -12,7 +12,7 @@ export const HeaderBar = styled.header`
   height: 186px;
   display: flex;
   align-items: flex-start;
-  padding-top: 63px;
+  padding-top: 64px;
 `
 
 export const ContainerHeader = styled.div`

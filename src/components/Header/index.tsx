@@ -24,7 +24,13 @@ const Header = () => {
         <LogoLink to="/">
           <Logo />
         </LogoLink>
-        <LinkCart to="/carrinho">
+        <LinkCart
+          to="/carrinho"
+          onClick={(e) => {
+            e.preventDefault()
+            openCart()
+          }}
+        >
           {items.length} produto(s) no carrinho
         </LinkCart>
       </ContainerHeader>
