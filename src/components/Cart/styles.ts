@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import { TagContainer } from '../Tag/styles'
-import { ButtonContainer } from '../Button/styles'
 import trash from '../../assets/images/trash.png'
 
 export const Overlay = styled.div`
@@ -110,4 +108,23 @@ export const Footer = styled.footer`
     font-weight: bold;
     cursor: pointer;
   }
+`
+
+export const ButtonCart = styled.button`
+  font-size: 14px;
+  background-color: ${cores.lightPink};
+  color: ${cores.darkPink};
+  margin-top: 16px;
+  padding: 4px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+`
+export const EmptyText = styled.p`
+  color: ${cores.lightPink};
+  font-size: 14px;
+  text-align: center;
+  margin-top: 8px;
+  line-height: 22px;
+  font-weight: bold;
 `

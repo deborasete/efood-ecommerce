@@ -36,7 +36,7 @@ const Perfil = () => {
   const [modalProduto, setModalProduto] = useState<Food | null>(null)
 
   useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+    fetch(`https://ebac-fake-api.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
       .then((res: RestauratApi) => {
         const cardapioConvertido: Food[] = res.cardapio.map((item: Plate) => {

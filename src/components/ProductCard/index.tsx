@@ -42,7 +42,7 @@ const ProductCard = ({
   return (
     <Card variant={variant} size={size}>
       <Link to={isSaibaMais && id ? `/perfil/${id}` : '#'}>
-        <img src={image} alt={title} />
+        <img src={image} alt={title} onClick={onAddToCart} />
       </Link>
       <ContentWrapper variant={variant} size={size}>
         {variant !== 'category' && (

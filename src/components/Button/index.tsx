@@ -1,7 +1,7 @@
 import { ButtonContainer, ButtonLink } from './styles'
 
 type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   variant?: 'default' | 'category'
   title: string
   to?: string
@@ -21,7 +21,7 @@ const Button = ({
     return (
       <ButtonContainer
         variant={variant}
-        type="button"
+        type={type}
         title={title}
         onClick={onClick}
       >

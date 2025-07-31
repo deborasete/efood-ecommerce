@@ -5,7 +5,8 @@ export const cores = {
   darkPink: '#E66767',
   white: '#FFFFFF',
   lighterPink: '#fceeee',
-  lightGray: 'rgb(253, 248, 248)'
+  lightGray: 'rgb(253, 248, 248)',
+  yellow: '#f5e83bff'
 }
 
 export const GlobalCss = createGlobalStyle`

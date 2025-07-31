@@ -18,7 +18,7 @@ const Home = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+    fetch('https://ebac-fake-api.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
       .then((data) => setRestaurantes(data))
   }, [])
