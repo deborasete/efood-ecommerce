@@ -118,7 +118,10 @@ const PaymentForm = ({
 
   return (
     <>
-      <Title>Pagamento - Valor a pagar R$ {amountToPay.toFixed(2)}</Title>
+      <Title>
+        Pagamento - Valor a pagar R${' '}
+        {amountToPay.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+      </Title>
 
       <form onSubmit={formik.handleSubmit}>
         <Label>
