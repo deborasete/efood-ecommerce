@@ -146,7 +146,7 @@ const PaymentForm = ({
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             >
-              {(inputProps: any) => (
+              {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
                 <Input
                   {...inputProps}
                   type="text"
@@ -166,7 +166,7 @@ const PaymentForm = ({
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             >
-              {(inputProps: any) => (
+              {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
                 <Input
                   {...inputProps}
                   type="text"
@@ -189,7 +189,7 @@ const PaymentForm = ({
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             >
-              {(inputProps: any) => (
+              {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
                 <Input
                   {...inputProps}
                   type="text"
@@ -208,7 +208,7 @@ const PaymentForm = ({
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             >
-              {(inputProps: any) => (
+              {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
                 <Input
                   {...inputProps}
                   type="text"

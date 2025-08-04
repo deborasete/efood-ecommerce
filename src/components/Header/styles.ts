@@ -13,6 +13,16 @@ export const HeaderBar = styled.header`
   display: flex;
   align-items: flex-start;
   padding-top: 64px;
+
+  @media (max-width: 1024px) {
+    height: 140px;
+    padding-top: 48px;
+  }
+
+  @media (max-width: 768px) {
+    height: 120px;
+    padding-top: 15px;
+  }
 `
 
 export const ContainerHeader = styled.div`
@@ -23,6 +33,17 @@ export const ContainerHeader = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+
+  @media (max-width: 1024px) {
+    padding: 0 10px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
 `
 
 export const StyledLink = styled(Link)`
@@ -36,6 +57,16 @@ export const StyledLink = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    font-size: 12px;
+    text-align: center;
+  }
 `
 
 export const LinkCart = styled(Link)`
@@ -46,10 +77,32 @@ export const LinkCart = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   font-size: 18px;
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+    min-width: 120px;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    min-width: auto;
+    font-size: 12px;
+    justify-content: center;
+    text-align: center;
+  }
 `
 
 export const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1024px) {
+    width: 100px;
+  }
+
+  @media (max-width: 768x) {
+    width: 80px;
+    height: 37px;
+  }
 `

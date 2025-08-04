@@ -1,3 +1,4 @@
+import { FormikProps } from 'formik'
 import ErrorText from '../ErrorText'
 import {
   Label,
@@ -9,8 +10,17 @@ import {
 } from './styles'
 import InputMask from 'react-input-mask'
 
+interface DeliveryFormValues {
+  nome: string
+  rua: string
+  cidade: string
+  cep: string
+  numero: string
+  complemento: string
+}
+
 interface DeliveryFormProps {
-  formik: any
+  formik: FormikProps<DeliveryFormValues>
   onBack: () => void
   onNext?: () => void
 }
@@ -76,7 +86,7 @@ const DeliveryForm = ({ formik, onBack, onNext }: DeliveryFormProps) => (
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           >
-            {(inputProps: any) => (
+            {(inputProps: React.InputHTMLAttributes<HTMLInputElement>) => (
               <Input
                 {...inputProps}
                 hasError={formik.touched.cep && !!formik.errors.cep}

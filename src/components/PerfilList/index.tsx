@@ -9,7 +9,7 @@ export type Props = {
   onAddToCart: (product: Food) => void
 }
 
-const PerfilList = ({ foods, title, onAddToCart }: Props) => (
+const PerfilList = ({ foods, onAddToCart }: Props) => (
   <Container>
     <div className="container">
       <ListA>

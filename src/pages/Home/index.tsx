@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import ProductCard from '../../components/ProductCard'
 import { Container, List } from '../../components/ProductsList/styles'
 import Banner from '../../components/Banner'
@@ -15,7 +14,6 @@ type Restaurante = {
 
 const Home = () => {
   const [restaurantes, setRestaurantes] = useState<Restaurante[]>([])
-  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('https://ebac-fake-api.vercel.app/api/efood/restaurantes')

@@ -1,9 +1,9 @@
 import { Link as RouterLink } from 'react-router-dom'
 import { Container, FooterSection, Link, Links } from './styles'
-import logo from '../../assets/images/logo.png'
 import instagram from '../../assets/images/instagram.png'
 import facebook from '../../assets/images/facebook.png'
 import twitter from '../../assets/images/twitter.png'
+import Logo from '../Logo'
 
 const Footer = () => (
   <Container>
@@ -13,7 +13,7 @@ const Footer = () => (
           to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <img src={logo} alt="Efood" />
+          <Logo />
         </RouterLink>
         <Links>
           <li>

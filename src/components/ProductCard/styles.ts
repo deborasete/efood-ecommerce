@@ -11,7 +11,8 @@ export const Card = styled.div<CardProps>`
   background-color: ${(props) =>
     props.variant === 'category' ? cores.darkPink : cores.white};
   position: relative;
-  width: ${(props) => (props.size === 'category' ? '320px' : '100%')};
+  width: 100%;
+  max-width: ${(props) => (props.size === 'category' ? '320px' : '100%')};
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -23,6 +24,14 @@ export const Card = styled.div<CardProps>`
     object-fit: cover;
     padding: ${(props) => (props.size === 'category' ? '8px' : '0')};
     display: block;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0px 8px;
+    img {
+      width: 100%;
+    }
   }
 `
 
@@ -56,6 +65,10 @@ export const ContentWrapper = styled.div<CardProps>`
     color: ${(props) =>
       props.variant === 'category' ? cores.lightPink : 'inherit'};
   }
+
+  @media (max-width: 768px) {
+    padding: 12px;
+  }
 `
 
 export const Titulo = styled.h3<CardProps>`
@@ -71,6 +84,13 @@ export const Descricao = styled.p<CardProps>`
   display: block;
   margin-top: 16px;
   margin-bottom: ${(props) => (props.variant === 'category' ? '0' : '16px')};
+  word-break: break-word;
+  white-space: normal;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    line-height: 20px;
+  }
 `
 
 export const Infos = styled.div`
@@ -79,6 +99,12 @@ export const Infos = styled.div`
   right: 16px;
   display: flex;
   gap: 8px;
+
+  @media (max-width: 768px) {
+    top: 8px;
+    right: 8px;
+    gap: 6px;
+  }
 `
 
 export const TituloWrapper = styled.div`
@@ -101,6 +127,21 @@ export const TituloWrapper = styled.div`
       margin-bottom: 1px;
       margin-left: 5px;
       margin-right: 0.5px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    .score {
+      font-size: 16px;
+
+      img {
+        width: 18px;
+        height: 18px;
+      }
     }
   }
 `
