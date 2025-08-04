@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+# Efood Store - React Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive e-commerce food store built with **React**, **TypeScript**, **Styled Components**, **Formik**, and **Redux**. This project simulates a platform where users can browse restaurant profiles, view food items and complete purchases through a multi-step checkout.
 
-## Available Scripts
+- You can visit the live site here: https://efood-ecommerce-five.vercel.app/
 
-In the project directory, you can run:
+<img width="1150" height="871" alt="image" src="https://github.com/user-attachments/assets/29783fa2-405d-4f89-902c-318d6abd88bd" />
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##  Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-  **Restaurant Listings**: Home page displays all available restaurants via a fake API.
+- **Product Cards**: Each item is shown as a customizable `ProductCard` component.
+-  **Cart System**: Items can be added and removed from the cart, with automatic total calculation.
+-  **Checkout Flow**:
+  - Step 1: Review Cart
+  - Step 2: Delivery Information (with form validation)
+  - Step 3: Payment Form (credit card input with masking)
+  - Step 4: Order Confirmation
+-  **Product Modal**: Opens when a product is clicked to show more details.
+-  **Reusable Components**: `Button`, `Tag`, `ProductCard`, and forms are designed to be modular and scalable.
+-  **API Integration**: Fetches restaurant data and handles mock checkout using [`ebac-fake-api`](https://ebac-fake-api.vercel.app/api/efood).
 
-### `npm test`
+## Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- TypeScript
+- Redux Toolkit
+- Formik + Yup
+- Styled Components
+- React Router DOM
+- InputMask
+- ESlint + Prettier
+- Fake API - Efood (REST)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To get the project running locally:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/deborasete/efood-ecommerce.git
 
-### `npm run eject`
+2. Install dependencies:
+   ```bash
+   npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Start the project:
+   ```bash
+   npm start
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Developed by:  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- LinkedIn: [Debora Sete](https://www.linkedin.com/in/debora-sete/)
+- Email: [sete.debora@gmail.com](mailto:sete.debora@gmail.com)
